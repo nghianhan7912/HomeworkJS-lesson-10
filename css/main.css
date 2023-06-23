@@ -20,3 +20,13 @@
 .myCardHeader, .myCardFooter{
 	background-color: transparent;       
 }
+
+.bg {
+  margin: 4px;
+  width: 80%;
+  border-radius: 5px;
+}
+
+.bg:hover{
+  background-color: fuchsia;
+}
