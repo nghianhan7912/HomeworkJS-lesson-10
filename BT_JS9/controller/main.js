@@ -15,7 +15,7 @@ function getInforEmployee(isEdit) {
     var email = getElement("#email").value
     var password = getElement("#password").value
     var dayWork = getElement("#datepicker").value
-    var basicSalary = getElement("#luongCB").value * 1
+    var basicSalary = getElement("#luongCB").value.replace(/\s/g, "") * 1
     var positon = getElement("#chucvu").value
     var hourWork = getElement("#gioLam").value * 1
     var nhanVien = new NhanVien(account, name, email, password, dayWork, basicSalary, positon, hourWork)
@@ -83,9 +83,9 @@ function renderDSNV(arrNV = dsnv.arrNV) {
         <td>${nv.totalSalary()}</td>
         <td>${nv.typeOfEmployee()}</td>
         <td>
-        <button class = "btn btn-success" onclick="updateNV('${nv.account}')" data-toggle="modal"
+        <button class = "bg btn btn-success" onclick="updateNV('${nv.account}')" data-toggle="modal"
         data-target="#myModal">Edit</button>
-        <button class = "btn btn-danger" onclick="deleteNV('${nv.account}')">Delete</button>
+        <button class = "bg btn btn-danger" onclick="deleteNV('${nv.account}')">Delete</button>
         </td>
         </tr>
         `
@@ -105,7 +105,7 @@ function getLocal() {
         var arr = []
         for (var i = 0; i < parseData.length; i++) {
             var nv = parseData[i]
-            var nhanVien = new NhanVien(nv.account, nv.name, nv.email, nv.password, nv.dayWork, nv.basicSalary, nv.positon, nv.hourWork)
+            var nhanVien = new NhanVien(nv.account, nv.name, nv.email, nv.password, nv.dayWork, nv.basicSalary, nv.positon, nv.hourWorkInMonth)
             arr.push(nhanVien)
         }
         dsnv.arrNV = arr
